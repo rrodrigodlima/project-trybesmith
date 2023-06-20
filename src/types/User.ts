@@ -5,3 +5,11 @@ export type User = {
   level: number;
   password: string;
 };
+
+export type UserLogin = {
+  id?: number;
+  username: string;
+  password: string;
+};
+
+export type UserLoginResponse = string;
