@@ -19,4 +19,19 @@ const create = async (
   }
 };
 
-export default { create };
+const getAll = async (
+  _req: Request,
+  res: Response,
+): Promise<Response> => {
+  try {
+    const products = await productService.getAll();
+
+    return res.status(200).json(products);
+  } catch (error) {
+    const { message } = error as Error;
+
+    return res.status(400).json({ message });
+  }
+};
+
+export default { create, getAll };
